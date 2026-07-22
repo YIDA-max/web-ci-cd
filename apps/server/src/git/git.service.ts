@@ -14,7 +14,16 @@ export class GitService {
 
   constructor(private configService: ConfigService) {
     const configuredDir = this.configService.get<string>('GIT_TEMP_DIR');
-    this.tempBaseDir = configuredDir || path.join(os.tmpdir(), 'git-merge-temp');
+    if (configuredDir && path.isAbsolute(configuredDir)) {
+      this.tempBaseDir = configuredDir;
+    } else if (configuredDir) {
+      // 相对路径基于 monorepo 根目录解析（不依赖 CWD）
+      // __dirname 在 dev 为 apps/server/src/git，在 dist 为 apps/server/dist/git
+      // 向上 4 级到达 monorepo 根目录
+      this.tempBaseDir = path.resolve(__dirname, '../../../..', configuredDir);
+    } else {
+      this.tempBaseDir = path.join(os.tmpdir(), 'git-merge-temp');
+    }
   }
 
   /**
