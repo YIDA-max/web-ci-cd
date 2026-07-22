@@ -1,3 +1,13 @@
+/*
+ * @Author: YIDA zhuhansong@merach.com
+ * @Date: 2026-07-22 12:39:32
+ * @LastEditors: YIDA zhuhansong@merach.com
+ * @LastEditTime: 2026-07-22 16:16:53
+ * @FilePath: \gitCICD\apps\server\src\main.ts
+ * @Description:
+ *
+ * Copyright (c) 2026 by ${git_name_email}, All Rights Reserved.
+ */
 import { NestFactory } from "@nestjs/core";
 import { ValidationPipe, Logger } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
@@ -21,6 +31,7 @@ async function bootstrap() {
       "http://localhost:10000",
       "http://127.0.0.1:10000",
       "http://192.168.200.218:10000",
+      "http://192.168.200.88:10000",
     ],
     credentials: true,
   });
