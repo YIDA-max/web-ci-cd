@@ -7,6 +7,8 @@
   --foreground: 222 47% 11%;
   --card: 0 0% 100%;
   --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
   --muted: 210 40% 90%;
   --muted-foreground: 215 16% 47%;
   --primary: 217 91% 53%;
@@ -32,6 +34,8 @@
   --foreground: 210 40% 96%;
   --card: 213 33% 17%;
   --card-foreground: 210 40% 96%;
+  --popover: 213 33% 17%;
+  --popover-foreground: 210 40% 96%;
   --muted: 213 33% 15%;
   --muted-foreground: 215 16% 65%;
   --primary: 217 91% 60%;
@@ -56,6 +60,8 @@
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
   --color-muted: hsl(var(--muted));
   --color-muted-foreground: hsl(var(--muted-foreground));
   --color-primary: hsl(var(--primary));
