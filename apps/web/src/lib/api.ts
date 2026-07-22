@@ -3,6 +3,9 @@ import type {
   MergeBranchesRequest,
   MergeBranchesResponse,
   CleanupResponse,
+  DeployEnvironmentsResponse,
+  DeployBuildRequest,
+  DeployBuildResponse,
 } from "@gitcicd/shared";
 
 export async function syncBranches(
@@ -32,6 +35,24 @@ export async function cleanup(tempDir: string): Promise<CleanupResponse> {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ tempDir }),
+  });
+  return res.json();
+}
+
+// ===== Deploy API =====
+
+export async function getDeployEnvironments(): Promise<DeployEnvironmentsResponse> {
+  const res = await fetch("/api/deploy/environments");
+  return res.json();
+}
+
+export async function deployBuild(
+  data: DeployBuildRequest,
+): Promise<DeployBuildResponse> {
+  const res = await fetch("/api/deploy/build", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
   });
   return res.json();
 }

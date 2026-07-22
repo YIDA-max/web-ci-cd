@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { GitModule } from './git/git.module';
+import { DeployModule } from './deploy/deploy.module';
 
 @Module({
   imports: [
@@ -8,8 +9,10 @@ import { GitModule } from './git/git.module';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    // Git 操作模块
+    // Git 操作模块（合并工具）
     GitModule,
+    // 发版部署模块
+    DeployModule,
   ],
 })
 export class AppModule {}

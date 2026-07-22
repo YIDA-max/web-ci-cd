@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Git 分支批量合并工具",
-  description: "同步远程分支，一键将源分支合并到所有目标分支",
+  title: "Git CI/CD 工具箱",
+  description: "分支合并 · 自动发版部署",
 };
 
 export default function RootLayout({

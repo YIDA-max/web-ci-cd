@@ -17,6 +17,9 @@ dist/
 # 这些是嵌套 Git 仓库，绝不能被父项目 Git 跟踪。
 .workspace/
 
+# 发版构建工作目录（clone + npm install + build 的临时目录）
+.deploy-workspace/
+
 # ===== 系统文件 =====
 *.log
 .DS_Store
