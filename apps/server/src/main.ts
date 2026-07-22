@@ -1,7 +1,7 @@
-import { NestFactory } from '@nestjs/core';
-import { ValidationPipe, Logger } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { AppModule } from './app.module';
+import { NestFactory } from "@nestjs/core";
+import { ValidationPipe, Logger } from "@nestjs/common";
+import { ConfigService } from "@nestjs/config";
+import { AppModule } from "./app.module";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -17,16 +17,20 @@ async function bootstrap() {
 
   // 允许 Next.js 前端跨域访问
   app.enableCors({
-    origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
+    origin: [
+      "http://localhost:10000",
+      "http://127.0.0.1:10000",
+      "http://192.168.200.218:10000",
+    ],
     credentials: true,
   });
 
-  const port = configService.get<number>('PORT', 3001);
-  const host = configService.get<string>('HOST', '127.0.0.1');
+  const port = configService.get<number>("PORT", 10001);
+  const host = configService.get<string>("HOST", "127.0.0.1");
 
   await app.listen(port, host);
 
-  const logger = new Logger('Bootstrap');
+  const logger = new Logger("Bootstrap");
   logger.log(`Git Service API → http://${host}:${port}/api/git/*`);
 }
 

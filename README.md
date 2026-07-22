@@ -17,8 +17,8 @@
 
 ```
 ├── apps/
-│   ├── web/          # Next.js 前端（端口 3000）
-│   └── server/       # NestJS 后端（端口 3001）
+│   ├── web/          # Next.js 前端（端口 10000）
+│   └── server/       # NestJS 后端（端口 10001）
 ├── packages/
 │   └── shared/       # 共享 TypeScript 类型定义
 ├── .workspace/       # Git 操作临时目录（不纳入版本控制）
@@ -40,8 +40,8 @@ pnpm dev --filter @gitcicd/web    # 前端
 pnpm dev --filter @gitcicd/server # 后端
 ```
 
-前端: http://localhost:3000
-后端: http://localhost:3001
+前端: http://localhost:10000
+后端: http://localhost:10001
 
 ## 功能
 

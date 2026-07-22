@@ -14,12 +14,27 @@ import type {
  * 生产环境可通过 NEXT_PUBLIC_API_URL 覆盖。
  */
 const DIRECT_API_BASE =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:10001";
+
+/** 10 分钟超时（发版构建包含 npm install + npm run build，耗时长） */
+const TEN_MINUTES = 10 * 60 * 1000;
+
+function fetchWithTimeout(
+  input: string,
+  init: RequestInit = {},
+  timeout = TEN_MINUTES,
+): Promise<Response> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeout);
+  return fetch(input, { ...init, signal: controller.signal }).finally(() =>
+    clearTimeout(timer),
+  );
+}
 
 export async function syncBranches(
   repoUrl: string,
 ): Promise<SyncBranchesResponse> {
-  const res = await fetch("/api/git/sync", {
+  const res = await fetchWithTimeout("/api/git/sync", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ repoUrl }),
@@ -30,7 +45,7 @@ export async function syncBranches(
 export async function mergeBranches(
   data: MergeBranchesRequest,
 ): Promise<MergeBranchesResponse> {
-  const res = await fetch("/api/git/merge", {
+  const res = await fetchWithTimeout("/api/git/merge", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -39,7 +54,7 @@ export async function mergeBranches(
 }
 
 export async function cleanup(tempDir: string): Promise<CleanupResponse> {
-  const res = await fetch("/api/git/cleanup", {
+  const res = await fetchWithTimeout("/api/git/cleanup", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ tempDir }),
@@ -50,17 +65,20 @@ export async function cleanup(tempDir: string): Promise<CleanupResponse> {
 // ===== Deploy API =====
 
 export async function getDeployEnvironments(): Promise<DeployEnvironmentsResponse> {
-  const res = await fetch("/api/deploy/environments");
+  const res = await fetchWithTimeout("/api/deploy/environments");
   return res.json();
 }
 
 export async function deployBuild(
   data: DeployBuildRequest,
 ): Promise<DeployBuildResponse> {
-  const res = await fetch(`${DIRECT_API_BASE}/api/deploy/build`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
+  const res = await fetchWithTimeout(
+    `${DIRECT_API_BASE}/api/deploy/build`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    },
+  );
   return res.json();
 }

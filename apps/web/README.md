@@ -1,3 +1,13 @@
+<!--
+ * @Author: YIDA zhuhansong@merach.com
+ * @Date: 2026-07-22 12:07:47
+ * @LastEditors: YIDA zhuhansong@merach.com
+ * @LastEditTime: 2026-07-22 15:03:46
+ * @FilePath: \gitCICD\apps\web\README.md
+ * @Description: 
+ * 
+ * Copyright (c) 2026 by ${git_name_email}, All Rights Reserved. 
+-->
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -14,7 +24,7 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:10000](http://localhost:10000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
