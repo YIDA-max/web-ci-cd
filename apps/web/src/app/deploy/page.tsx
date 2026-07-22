@@ -159,7 +159,7 @@ export default function DeployPage() {
         </AnimatePresence>
 
         {/* Step 1: 仓库配置 */}
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           {currentStep === 1 && (
             <motion.div
               key="step1"
@@ -209,7 +209,7 @@ export default function DeployPage() {
         )}
 
         {/* Step 2: 分支列表 + 发版按钮 */}
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           {currentStep === 2 && !isSyncing && (
             <motion.div
               key="step2"
@@ -256,7 +256,7 @@ export default function DeployPage() {
         </AnimatePresence>
 
         {/* Step 3: 部署进度 */}
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           {currentStep === 3 && (
             <motion.div
               key="step3"

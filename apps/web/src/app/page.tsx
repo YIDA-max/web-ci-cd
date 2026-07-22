@@ -161,7 +161,7 @@ export default function Home() {
         </AnimatePresence>
 
         {/* Step 1: 仓库配置 */}
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           {currentStep === 1 && (
             <motion.div
               key="step1"
@@ -192,7 +192,7 @@ export default function Home() {
         )}
 
         {/* Step 2: 分支选择 + 合并配置 */}
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           {currentStep === 2 && !isLoading && (
             <motion.div
               key="step2"
@@ -213,7 +213,7 @@ export default function Home() {
         </AnimatePresence>
 
         {/* Step 3: 结果展示 */}
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           {currentStep === 3 && !isLoading && (
             <motion.div
               key="step3"

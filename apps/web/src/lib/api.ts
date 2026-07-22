@@ -8,6 +8,14 @@ import type {
   DeployBuildResponse,
 } from "@gitcicd/shared";
 
+/**
+ * 后端直连地址 — 用于耗时较长的 API（如发版构建），
+ * 绕过 Next.js rewrite 代理的默认超时限制。
+ * 生产环境可通过 NEXT_PUBLIC_API_URL 覆盖。
+ */
+const DIRECT_API_BASE =
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+
 export async function syncBranches(
   repoUrl: string,
 ): Promise<SyncBranchesResponse> {
@@ -49,7 +57,7 @@ export async function getDeployEnvironments(): Promise<DeployEnvironmentsRespons
 export async function deployBuild(
   data: DeployBuildRequest,
 ): Promise<DeployBuildResponse> {
-  const res = await fetch("/api/deploy/build", {
+  const res = await fetch(`${DIRECT_API_BASE}/api/deploy/build`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
