@@ -1,0 +1,32 @@
+# ===== 依赖 =====
+node_modules/
+
+# ===== 编译输出 =====
+dist/
+.next/
+.turbo/
+*.tsbuildinfo
+
+# ===== 环境配置 =====
+.env
+.env.local
+.env.*.local
+
+# ===== Git 工具操作目录 =====
+# 本项目自身会通过 simple-git 在 .workspace/ 下 clone 仓库并执行分支合并，
+# 这些是嵌套 Git 仓库，绝不能被父项目 Git 跟踪。
+.workspace/
+
+# ===== 系统文件 =====
+*.log
+.DS_Store
+Thumbs.db
+
+# ===== IDE / 编辑器 =====
+.idea/
+.vscode/
+.history/
+*.swp
+
+# ===== WorkBuddy =====
+.workbuddy/

@@ -1,0 +1,21 @@
+{
+  "name": "gitcicd",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Git 分支批量合并工具 - 企业级 Monorepo",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "dev:web": "turbo dev --filter=web",
+    "dev:server": "turbo dev --filter=server",
+    "lint": "turbo lint"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "typescript": "^5.5.0"
+  },
+  "packageManager": "pnpm@11.5.0",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
