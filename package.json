@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
+    "pack:release": "node scripts/pack.cjs",
+    "build:pack": "pnpm build && pnpm run pack:release",
     "dev:web": "turbo dev --filter=web",
     "dev:server": "turbo dev --filter=server",
     "lint": "turbo lint"

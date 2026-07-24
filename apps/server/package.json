@@ -13,16 +13,32 @@
     "@nestjs/common": "^11.0.0",
     "@nestjs/config": "^4.0.0",
     "@nestjs/core": "^11.0.0",
+    "@nestjs/jwt": "^11.0.2",
     "@nestjs/platform-express": "^11.0.0",
+    "axios": "^1.7.0",
+    "base64url": "^3.0.1",
+    "cheerio": "^1.0.0-rc.12",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
+    "epub": "^1.2.1",
+    "epub-gen": "^0.1.0",
+    "iconv-lite": "^0.6.3",
+    "multer": "^1.4.5-lts.1",
+    "puppeteer": "^20.5.0",
+    "qs": "^6.11.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
-    "simple-git": "^3.21.0"
+    "simple-git": "^3.21.0",
+    "unzipper": "^0.10.14",
+    "stream-to-array": "^2.3.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^11.0.0",
+    "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^1.4.12",
     "@types/node": "^22.0.0",
+    "@types/qs": "^6.9.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.0"
   }

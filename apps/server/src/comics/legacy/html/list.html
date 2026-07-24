@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>漫画大全 - 看漫画</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="漫画大全看漫画" />
+    <meta
+      name="description"
+      content="漫画大全，来自看漫画，努力打造属于漫画迷的漫画乐园。"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cf.hamreus.com/css/list_CF04833BC5A5F124E339A195589A0D9A41E6FCC7.css"
+    />
+    <!--[if IE 6
+      ]><script type="text/javascript">
+        document.execCommand("BackgroundImageCache", false, true);
+      </script><!
+    [endif]-->
+  </head>
+  <body>
+    <div class="topper">
+      <div class="w998">
+        <div class="fl">
+          <a href="javascript:;" onclick="SMH.utils.addToFav();"
+            >欢迎访问看漫画</a
+          >
+          | <a id="language" href="#"></a> |
+          <a id="mobilesite" href="#"></a>
+        </div>
+        <div class="user-area fr">
+          <div class="user-view" id="history">
+            <div class="handle">
+              <a href="javascript:;">我的观看记录</a>
+              <i></i>
+            </div>
+            <div id="hListBox" class="panel shadow-gray">
+              <div class="hlist" id="hList"></div>
+              <div class="hlist-remove">
+                <a id="hListClear" href="javascript:void(0);">清空全部记录</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w998 mt10">
+      <div class="header">
+        <h2 class="logo fl">
+          <a href="https://www.manhuagui.com" title="看漫画"
+            >看漫画，就来manhuagui.com！</a
+          >
+        </h2>
+        <div class="search fl">
+          <fieldset>
+            <input
+              type="text"
+              class="keyword"
+              id="txtKw"
+              lang="zh-CN"
+              x-webkit-grammar="builtin:search"
+              x-webkit-speech=""
+              autocomplete="off"
+            />
+            <input type="button" class="button" id="btnSearch" value="搜索" />
+          </fieldset>
+          <div class="suggest" id="suggest"></div>
+        </div>
+        <div class="shortcuts fr">
+          <a href="/support/shortcut.ashx" class="desktop">设为桌面图标</a>
+          <a
+            href="javascript:;"
+            onclick="SMH.utils.addToFav();"
+            class="favorite"
+            >收藏看漫画</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="w998 nav-bar shadow mb16">
+      <div
+        class="nav-sub fl"
+        onmouseover="this.className='nav-sub nav-sub-over fl'"
+        onmouseout="this.className='nav-sub fl'"
+      >
+        <h2>漫画大全导航</h2>
+        <div class="nav-sub-cont-bg">
+          <div class="nav-sub-cont">
+            <div class="filter area">
+              <label>按地区：</label>
+              <ul>
+                <li><a href="/list/" class="on">全部</a></li>
+                <li><a href="/list/japan/">日本</a></li>
+                <li><a href="/list/hongkong/">港台</a></li>
+                <li><a href="/list/other/">其它</a></li>
+                <li><a href="/list/europe/">欧美</a></li>
+                <li><a href="/list/china/">内地</a></li>
+                <li><a href="/list/korea/">韩国</a></li>
+              </ul>
+            </div>
+            <div class="filter genre">
+              <label>按剧情：</label>
+              <ul>
+                <li><a href="/list/" class="on">全部</a></li>
+                <li><a href="/list/rexue/">热血</a></li>
+                <li><a href="/list/maoxian/">冒险</a></li>
+                <li><a href="/list/mohuan/">魔幻</a></li>
+                <li><a href="/list/shengui/">神鬼</a></li>
+                <li><a href="/list/gaoxiao/">搞笑</a></li>
+                <li><a href="/list/mengxi/">萌系</a></li>
+                <li><a href="/list/aiqing/">爱情</a></li>
+                <li><a href="/list/kehuan/">科幻</a></li>
+                <li><a href="/list/mofa/">魔法</a></li>
+                <li><a href="/list/gedou/">格斗</a></li>
+                <li><a href="/list/wuxia/">武侠</a></li>
+                <li><a href="/list/jizhan/">机战</a></li>
+                <li><a href="/list/zhanzheng/">战争</a></li>
+                <li><a href="/list/jingji/">竞技</a></li>
+                <li><a href="/list/tiyu/">体育</a></li>
+                <li><a href="/list/xiaoyuan/">校园</a></li>
+                <li><a href="/list/shenghuo/">生活</a></li>
+                <li><a href="/list/lizhi/">励志</a></li>
+                <li><a href="/list/lishi/">历史</a></li>
+                <li><a href="/list/weiniang/">伪娘</a></li>
+                <li><a href="/list/zhainan/">宅男</a></li>
+                <li><a href="/list/funv/">腐女</a></li>
+                <li><a href="/list/danmei/">耽美</a></li>
+                <li><a href="/list/baihe/">百合</a></li>
+                <li><a href="/list/hougong/">后宫</a></li>
+                <li><a href="/list/zhiyu/">治愈</a></li>
+                <li><a href="/list/meishi/">美食</a></li>
+                <li><a href="/list/tuili/">推理</a></li>
+                <li><a href="/list/xuanyi/">悬疑</a></li>
+                <li><a href="/list/kongbu/">恐怖</a></li>
+                <li><a href="/list/sige/">四格</a></li>
+                <li><a href="/list/zhichang/">职场</a></li>
+                <li><a href="/list/zhentan/">侦探</a></li>
+                <li><a href="/list/shehui/">社会</a></li>
+                <li><a href="/list/yinyue/">音乐</a></li>
+                <li><a href="/list/wudao/">舞蹈</a></li>
+                <li><a href="/list/zazhi/">杂志</a></li>
+                <li><a href="/list/heidao/">黑道</a></li>
+              </ul>
+            </div>
+            <div class="filter age">
+              <label>按受众：</label>
+              <ul>
+                <li><a href="/list/" class="on">全部</a></li>
+                <li><a href="/list/shaonv/">少女</a></li>
+                <li><a href="/list/shaonian/">少年</a></li>
+                <li><a href="/list/qingnian/">青年</a></li>
+                <li><a href="/list/ertong/">儿童</a></li>
+                <li><a href="/list/tongyong/">通用</a></li>
+              </ul>
+            </div>
+            <div class="filter year">
+              <label>按年份：</label>
+              <ul>
+                <li><a href="/list/" class="on">全部</a></li>
+                <li><a href="/list/2021/">2021年</a></li>
+                <li><a href="/list/2020/">2020年</a></li>
+                <li><a href="/list/2019/">2019年</a></li>
+                <li><a href="/list/2018/">2018年</a></li>
+                <li><a href="/list/2017/">2017年</a></li>
+                <li><a href="/list/2016/">2016年</a></li>
+                <li><a href="/list/2015/">2015年</a></li>
+                <li><a href="/list/2014/">2014年</a></li>
+                <li><a href="/list/2013/">2013年</a></li>
+                <li><a href="/list/2012/">2012年</a></li>
+                <li><a href="/list/2011/">2011年</a></li>
+                <li><a href="/list/2010/">2010年</a></li>
+                <li><a href="/list/200x/">00年代</a></li>
+                <li><a href="/list/199x/">90年代</a></li>
+                <li><a href="/list/198x/">80年代</a></li>
+                <li><a href="/list/197x/">更早</a></li>
+              </ul>
+            </div>
+            <div class="filter letter">
+              <label>按字母：</label>
+              <ul>
+                <li><a href="/list/" class="on">全部</a></li>
+                <li><a href="/list/a/">A</a></li>
+                <li><a href="/list/b/">B</a></li>
+                <li><a href="/list/c/">C</a></li>
+                <li><a href="/list/d/">D</a></li>
+                <li><a href="/list/e/">E</a></li>
+                <li><a href="/list/f/">F</a></li>
+                <li><a href="/list/g/">G</a></li>
+                <li><a href="/list/h/">H</a></li>
+                <li><a href="/list/i/">I</a></li>
+                <li><a href="/list/j/">J</a></li>
+                <li><a href="/list/k/">K</a></li>
+                <li><a href="/list/l/">L</a></li>
+                <li><a href="/list/m/">M</a></li>
+                <li><a href="/list/n/">N</a></li>
+                <li><a href="/list/o/">O</a></li>
+                <li><a href="/list/p/">P</a></li>
+                <li><a href="/list/q/">Q</a></li>
+                <li><a href="/list/r/">R</a></li>
+                <li><a href="/list/s/">S</a></li>
+                <li><a href="/list/t/">T</a></li>
+                <li><a href="/list/u/">U</a></li>
+                <li><a href="/list/v/">V</a></li>
+                <li><a href="/list/w/">W</a></li>
+                <li><a href="/list/x/">X</a></li>
+                <li><a href="/list/y/">Y</a></li>
+                <li><a href="/list/z/">Z</a></li>
+                <li><a href="/list/0-9/">0-9</a></li>
+              </ul>
+            </div>
+            <div class="filter status">
+              <label>按进度：</label>
+              <ul>
+                <li><a href="/list/" class="on">全部</a></li>
+                <li><a href="/list/lianzai/">连载</a></li>
+                <li><a href="/list/wanjie/">完结</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-main fl">
+        <ul>
+          <li class="first"><a href="/">首页</a></li>
+          <li><a href="/update/">最新更新</a></li>
+          <li><a href="/rank/">排行榜</a></li>
+          <li><a href="/list/lianzai/">连载漫画</a></li>
+          <li><a href="/list/wanjie/">完结漫画</a></li>
+          <li><a href="/list/">漫画大全</a></li>
+          <li class="laster"><a href="/alist/">漫画家</a></li>
+        </ul>
+      </div>
+      <div class="nav-less fl">
+        <a id="randomView" href="javascript:;">漫画随心看</a>
+      </div>
+    </div>
+    <div class="w998 mt16">
+      <div class="box-gray shadow-gray">
+        <div class="bar-title filter-title">
+          <h2>漫画大全 - 分类筛选</h2>
+          <div class="filter-click">
+            <a href="/list/" class="re"><i></i>重新筛选</a>
+          </div>
+        </div>
+        <div class="filter-nav">
+          <div class="filter area">
+            <label>按地区：</label>
+            <ul>
+              <li><a href="/list/" class="on">全部</a></li>
+              <li><a href="/list/japan/">日本</a></li>
+              <li><a href="/list/hongkong/">港台</a></li>
+              <li><a href="/list/other/">其它</a></li>
+              <li><a href="/list/europe/">欧美</a></li>
+              <li><a href="/list/china/">内地</a></li>
+              <li><a href="/list/korea/">韩国</a></li>
+            </ul>
+          </div>
+          <div class="filter genre">
+            <label>按剧情：</label>
+            <ul>
+              <li><a href="/list/" class="on">全部</a></li>
+              <li><a href="/list/rexue/">热血</a></li>
+              <li><a href="/list/maoxian/">冒险</a></li>
+              <li><a href="/list/mohuan/">魔幻</a></li>
+              <li><a href="/list/shengui/">神鬼</a></li>
+              <li><a href="/list/gaoxiao/">搞笑</a></li>
+              <li><a href="/list/mengxi/">萌系</a></li>
+              <li><a href="/list/aiqing/">爱情</a></li>
+              <li><a href="/list/kehuan/">科幻</a></li>
+              <li><a href="/list/mofa/">魔法</a></li>
+              <li><a href="/list/gedou/">格斗</a></li>
+              <li><a href="/list/wuxia/">武侠</a></li>
+              <li><a href="/list/jizhan/">机战</a></li>
+              <li><a href="/list/zhanzheng/">战争</a></li>
+              <li><a href="/list/jingji/">竞技</a></li>
+              <li><a href="/list/tiyu/">体育</a></li>
+              <li><a href="/list/xiaoyuan/">校园</a></li>
+              <li><a href="/list/shenghuo/">生活</a></li>
+              <li><a href="/list/lizhi/">励志</a></li>
+              <li><a href="/list/lishi/">历史</a></li>
+              <li><a href="/list/weiniang/">伪娘</a></li>
+              <li><a href="/list/zhainan/">宅男</a></li>
+              <li><a href="/list/funv/">腐女</a></li>
+              <li><a href="/list/danmei/">耽美</a></li>
+              <li><a href="/list/baihe/">百合</a></li>
+              <li><a href="/list/hougong/">后宫</a></li>
+              <li><a href="/list/zhiyu/">治愈</a></li>
+              <li><a href="/list/meishi/">美食</a></li>
+              <li><a href="/list/tuili/">推理</a></li>
+              <li><a href="/list/xuanyi/">悬疑</a></li>
+              <li><a href="/list/kongbu/">恐怖</a></li>
+              <li><a href="/list/sige/">四格</a></li>
+              <li><a href="/list/zhichang/">职场</a></li>
+              <li><a href="/list/zhentan/">侦探</a></li>
+              <li><a href="/list/shehui/">社会</a></li>
+              <li><a href="/list/yinyue/">音乐</a></li>
+              <li><a href="/list/wudao/">舞蹈</a></li>
+              <li><a href="/list/zazhi/">杂志</a></li>
+              <li><a href="/list/heidao/">黑道</a></li>
+            </ul>
+          </div>
+          <div class="filter age">
+            <label>按受众：</label>
+            <ul>
+              <li><a href="/list/" class="on">全部</a></li>
+              <li><a href="/list/shaonv/">少女</a></li>
+              <li><a href="/list/shaonian/">少年</a></li>
+              <li><a href="/list/qingnian/">青年</a></li>
+              <li><a href="/list/ertong/">儿童</a></li>
+              <li><a href="/list/tongyong/">通用</a></li>
+            </ul>
+          </div>
+          <div class="filter year">
+            <label>按年份：</label>
+            <ul>
+              <li><a href="/list/" class="on">全部</a></li>
+              <li><a href="/list/2021/">2021年</a></li>
+              <li><a href="/list/2020/">2020年</a></li>
+              <li><a href="/list/2019/">2019年</a></li>
+              <li><a href="/list/2018/">2018年</a></li>
+              <li><a href="/list/2017/">2017年</a></li>
+              <li><a href="/list/2016/">2016年</a></li>
+              <li><a href="/list/2015/">2015年</a></li>
+              <li><a href="/list/2014/">2014年</a></li>
+              <li><a href="/list/2013/">2013年</a></li>
+              <li><a href="/list/2012/">2012年</a></li>
+              <li><a href="/list/2011/">2011年</a></li>
+              <li><a href="/list/2010/">2010年</a></li>
+              <li><a href="/list/200x/">00年代</a></li>
+              <li><a href="/list/199x/">90年代</a></li>
+              <li><a href="/list/198x/">80年代</a></li>
+              <li><a href="/list/197x/">更早</a></li>
+            </ul>
+          </div>
+          <div class="filter letter">
+            <label>按字母：</label>
+            <ul>
+              <li><a href="/list/" class="on">全部</a></li>
+              <li><a href="/list/a/">A</a></li>
+              <li><a href="/list/b/">B</a></li>
+              <li><a href="/list/c/">C</a></li>
+              <li><a href="/list/d/">D</a></li>
+              <li><a href="/list/e/">E</a></li>
+              <li><a href="/list/f/">F</a></li>
+              <li><a href="/list/g/">G</a></li>
+              <li><a href="/list/h/">H</a></li>
+              <li><a href="/list/i/">I</a></li>
+              <li><a href="/list/j/">J</a></li>
+              <li><a href="/list/k/">K</a></li>
+              <li><a href="/list/l/">L</a></li>
+              <li><a href="/list/m/">M</a></li>
+              <li><a href="/list/n/">N</a></li>
+              <li><a href="/list/o/">O</a></li>
+              <li><a href="/list/p/">P</a></li>
+              <li><a href="/list/q/">Q</a></li>
+              <li><a href="/list/r/">R</a></li>
+              <li><a href="/list/s/">S</a></li>
+              <li><a href="/list/t/">T</a></li>
+              <li><a href="/list/u/">U</a></li>
+              <li><a href="/list/v/">V</a></li>
+              <li><a href="/list/w/">W</a></li>
+              <li><a href="/list/x/">X</a></li>
+              <li><a href="/list/y/">Y</a></li>
+              <li><a href="/list/z/">Z</a></li>
+              <li><a href="/list/0-9/">0-9</a></li>
+            </ul>
+          </div>
+          <div class="filter status">
+            <label>按进度：</label>
+            <ul>
+              <li><a href="/list/" class="on">全部</a></li>
+              <li><a href="/list/lianzai/">连载</a></li>
+              <li><a href="/list/wanjie/">完结</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="jg_960"></div>
+    <div class="w998 mt10 cf">
+      <div class="bar-tab book-sort">
+        <h5 class="fl"><strong>排序方式</strong></h5>
+        <div class="fl">
+          <ul>
+            <li class="current"><a href="/list/">最新发布</a></li>
+            <li><a href="/list/update.html">最新更新</a></li>
+            <li><a href="/list/view.html">人气最旺</a></li>
+            <li><a href="/list/rate.html">评分最高</a></li>
+          </ul>
+        </div>
+        <div class="result-count">
+          第
+          <strong>1</strong> / <strong>1157</strong> 页，共有
+          <strong>48555</strong> 部漫画
+        </div>
+      </div>
+      <div class="book-list">
+        <ul id="contList">
+          <li>
+            <a
+              class="bcover"
+              href="/comic/48643/"
+              title="那部色色的电影叫什么？"
+              ><img
+                src="//cf.hamreus.com/cpic/b/48643.jpg"
+                alt="那部色色的电影叫什么？" /><span class="bg"></span
+              ><span class="tt">更新至短篇[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48643/" title="那部色色的电影叫什么？"
+                >那部色色的电影叫什么？</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-07<em>0.0</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48642/" title="M&amp;M豆：身份误区"
+              ><img
+                src="//cf.hamreus.com/cpic/b/48642.jpg"
+                alt="M&amp;M豆：身份误区" /><span class="bg"></span
+              ><span class="tt">更新至全一卷[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48642/" title="M&amp;M豆：身份误区"
+                >M&amp;M豆：身份误区</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-07<em>0.0</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48641/" title="朝蓝天呼唤"
+              ><img
+                src="//cf.hamreus.com/cpic/b/48641_05.jpg"
+                alt="朝蓝天呼唤" /><span class="bg"></span
+              ><span class="tt">更新至第01卷[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48641/" title="朝蓝天呼唤">朝蓝天呼唤</a>
+            </p>
+            <span class="updateon">更新于：2023-06-07<em>6.0</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48640/" title="爱意初绽"
+              ><img
+                src="//cf.hamreus.com/cpic/b/48640.jpg"
+                alt="爱意初绽" /><span class="bg"></span
+              ><span class="tt">更新至短篇[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48640/" title="爱意初绽">爱意初绽</a>
+            </p>
+            <span class="updateon">更新于：2023-06-07<em>9.5</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48639/" title="你的纯情，我的纯情"
+              ><img
+                src="//cf.hamreus.com/cpic/b/48639.jpg"
+                alt="你的纯情，我的纯情" /><span class="bg"></span
+              ><span class="tt">更新至第01话</span><span class="sl"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48639/" title="你的纯情，我的纯情"
+                >你的纯情，我的纯情</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-07<em>8.0</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48638/" title="人类蚀"
+              ><img src="//cf.hamreus.com/cpic/b/48638.jpg" alt="人类蚀" /><span
+                class="bg"
+              ></span
+              ><span class="tt">更新至第01话</span><span class="sl"></span
+            ></a>
+            <p class="ell"><a href="/comic/48638/" title="人类蚀">人类蚀</a></p>
+            <span class="updateon">更新于：2023-06-07<em>8.3</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48637/" title="无名之剑 中国幻想选"
+              ><img
+                src="//cf.hamreus.com/cpic/b/48637.jpg"
+                alt="无名之剑 中国幻想选" /><span class="bg"></span
+              ><span class="tt">更新至第1.1话</span><span class="sl"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48637/" title="无名之剑 中国幻想选"
+                >无名之剑 中国幻想选</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-07<em>8.4</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48636/" title="Ω・复仇"
+              ><img
+                src="//cf.hamreus.com/cpic/b/48636.jpg"
+                alt="Ω・复仇" /><span class="bg"></span
+              ><span class="tt">更新至第02卷</span><span class="sl"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48636/" title="Ω・复仇">Ω・复仇</a>
+            </p>
+            <span class="updateon">更新于：2023-06-07<em>6.6</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48635/" title="にΔ的虹夏呆毛漫画"
+              ><img
+                src="//cf.hamreus.com/cpic/b/48635.jpg"
+                alt="にΔ的虹夏呆毛漫画" /><span class="bg"></span
+              ><span class="tt">更新至第01话</span><span class="sl"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48635/" title="にΔ的虹夏呆毛漫画"
+                >にΔ的虹夏呆毛漫画</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-06<em>6.0</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48634/" title="针妙丸丸丸"
+              ><img
+                src="//cf.hamreus.com/cpic/b/48634.jpg"
+                alt="针妙丸丸丸" /><span class="bg"></span
+              ><span class="tt">更新至全一话[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48634/" title="针妙丸丸丸">针妙丸丸丸</a>
+            </p>
+            <span class="updateon">更新于：2023-06-06<em>8.0</em></span>
+          </li>
+          <li>
+            <a
+              class="bcover"
+              href="/comic/48633/"
+              title="我说一色君，你是喜欢我的吧？"
+              ><img
+                src="//cf.hamreus.com/cpic/b/48633.jpg"
+                alt="我说一色君，你是喜欢我的吧？" /><span class="bg"></span
+              ><span class="tt">更新至第01话</span><span class="sl"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48633/" title="我说一色君，你是喜欢我的吧？"
+                >我说一色君，你是喜欢我的吧？</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-06<em>9.4</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48632/" title="LOVELY PLAY"
+              ><img
+                src="//cf.hamreus.com/cpic/b/48632.jpg"
+                alt="LOVELY PLAY" /><span class="bg"></span
+              ><span class="tt">更新至第01卷[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48632/" title="LOVELY PLAY">LOVELY PLAY</a>
+            </p>
+            <span class="updateon">更新于：2023-06-06<em>4.4</em></span>
+          </li>
+          <li>
+            <a
+              class="bcover"
+              href="/comic/48631/"
+              title="ゲヘナの七不思議 検証してみた結果w"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48631.jpg"
+                alt="ゲヘナの七不思議 検証してみた結果w" /><span
+                class="bg"
+              ></span
+              ><span class="tt">更新至短篇[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48631/" title="ゲヘナの七不思議 検証してみた結果w"
+                >ゲヘナの七不思議 検証してみた結果w</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-06<em>8.0</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48630/" title="狼与左轮手枪"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48630.jpg"
+                alt="狼与左轮手枪" /><span class="bg"></span
+              ><span class="tt">更新至第01话</span><span class="sl"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48630/" title="狼与左轮手枪">狼与左轮手枪</a>
+            </p>
+            <span class="updateon">更新于：2023-06-06<em>8.9</em></span>
+          </li>
+          <li>
+            <a
+              class="bcover"
+              href="/comic/48629/"
+              title="Evangelion 3.0+1.11 Thrice Upon a Time EVANGELION STORE Limited Set"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48629.jpg"
+                alt="Evangelion 3.0+1.11 Thrice Upon a Time EVANGELION STORE Limited Set" /><span
+                class="bg"
+              ></span
+              ><span class="tt">更新至台紙付きポストカードセット[完]</span
+              ><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a
+                href="/comic/48629/"
+                title="Evangelion 3.0+1.11 Thrice Upon a Time EVANGELION STORE Limited Set"
+                >Evangelion 3.0+1.11 Thrice Upon a Time EVANGELION STORE Limited
+                Set</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-06<em>9.0</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48628/" title="对称性"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48628.jpg"
+                alt="对称性" /><span class="bg"></span
+              ><span class="tt">更新至第01卷</span><span class="sl"></span
+            ></a>
+            <p class="ell"><a href="/comic/48628/" title="对称性">对称性</a></p>
+            <span class="updateon">更新于：2023-06-06<em>6.0</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48627/" title="红人形"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48627.jpg"
+                alt="红人形" /><span class="bg"></span
+              ><span class="tt">更新至短篇[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell"><a href="/comic/48627/" title="红人形">红人形</a></p>
+            <span class="updateon">更新于：2023-06-06<em>8.7</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48626/" title="妹红的永远亭留宿记"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48626.jpg"
+                alt="妹红的永远亭留宿记" /><span class="bg"></span
+              ><span class="tt">更新至短篇[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48626/" title="妹红的永远亭留宿记"
+                >妹红的永远亭留宿记</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-06<em>8.4</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48625/" title="在月夜里为爱哭泣"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48625.jpg"
+                alt="在月夜里为爱哭泣" /><span class="bg"></span
+              ><span class="tt">更新至第01卷[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48625/" title="在月夜里为爱哭泣"
+                >在月夜里为爱哭泣</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-06<em>4.9</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48624/" title="被武装jk袭击了"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48624.jpg"
+                alt="被武装jk袭击了" /><span class="bg"></span
+              ><span class="tt">更新至第02话</span><span class="sl"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48624/" title="被武装jk袭击了">被武装jk袭击了</a>
+            </p>
+            <span class="updateon">更新于：2023-06-06<em>6.5</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48623/" title="前说！"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48623.jpg"
+                alt="前说！" /><span class="bg"></span
+              ><span class="tt">更新至第01话</span><span class="sl"></span
+            ></a>
+            <p class="ell"><a href="/comic/48623/" title="前说！">前说！</a></p>
+            <span class="updateon">更新于：2023-06-05<em>5.0</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48622/" title="TABEGIRL"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48622.jpg"
+                alt="TABEGIRL" /><span class="bg"></span
+              ><span class="tt">更新至画集[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48622/" title="TABEGIRL">TABEGIRL</a>
+            </p>
+            <span class="updateon">更新于：2023-06-05<em>9.3</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48621/" title="狂狼食茧"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48621.jpg"
+                alt="狂狼食茧" /><span class="bg"></span
+              ><span class="tt">更新至第01话</span><span class="sl"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48621/" title="狂狼食茧">狂狼食茧</a>
+            </p>
+            <span class="updateon">更新于：2023-06-05<em>8.7</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48620/" title="与在大学交的宅友…"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48620.jpg"
+                alt="与在大学交的宅友…" /><span class="bg"></span
+              ><span class="tt">更新至第01话</span><span class="sl"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48620/" title="与在大学交的宅友…"
+                >与在大学交的宅友…</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-05<em>8.0</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48619/" title="游戏到此为止"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48619.jpg"
+                alt="游戏到此为止" /><span class="bg"></span
+              ><span class="tt">更新至第01卷[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48619/" title="游戏到此为止">游戏到此为止</a>
+            </p>
+            <span class="updateon">更新于：2023-06-05<em>3.7</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48618/" title="炎的报恩"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48618.jpg"
+                alt="炎的报恩" /><span class="bg"></span
+              ><span class="tt">更新至イグニカ[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48618/" title="炎的报恩">炎的报恩</a>
+            </p>
+            <span class="updateon">更新于：2023-06-05<em>6.7</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48617/" title="我的青梅竹马很好懂"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48617.jpg"
+                alt="我的青梅竹马很好懂" /><span class="bg"></span
+              ><span class="tt">更新至短篇[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48617/" title="我的青梅竹马很好懂"
+                >我的青梅竹马很好懂</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-05<em>9.2</em></span>
+          </li>
+          <li>
+            <a
+              class="bcover"
+              href="/comic/48616/"
+              title="总在便利店相遇的大姐姐是个隐藏社恐"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48616.jpg"
+                alt="总在便利店相遇的大姐姐是个隐藏社恐" /><span
+                class="bg"
+              ></span
+              ><span class="tt">更新至第03话</span><span class="sl"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48616/" title="总在便利店相遇的大姐姐是个隐藏社恐"
+                >总在便利店相遇的大姐姐是个隐藏社恐</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-06<em>8.2</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48615/" title="明明大家都是第一次"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48615.jpg"
+                alt="明明大家都是第一次" /><span class="bg"></span
+              ><span class="tt">更新至第01卷[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48615/" title="明明大家都是第一次"
+                >明明大家都是第一次</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-05<em>4.1</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48614/" title="【侦探雾子】白影"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48614.jpg"
+                alt="【侦探雾子】白影" /><span class="bg"></span
+              ><span class="tt">更新至短篇[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48614/" title="【侦探雾子】白影"
+                >【侦探雾子】白影</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-04<em>9.0</em></span>
+          </li>
+          <li>
+            <a
+              class="bcover"
+              href="/comic/48613/"
+              title="Under Water Fleet Girls 潜水娘"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48613.jpg"
+                alt="Under Water Fleet Girls 潜水娘" /><span class="bg"></span
+              ><span class="tt">更新至画集[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48613/" title="Under Water Fleet Girls 潜水娘"
+                >Under Water Fleet Girls 潜水娘</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-04<em>7.0</em></span>
+          </li>
+          <li>
+            <a
+              class="bcover"
+              href="/comic/48612/"
+              title="超级蔚蓝档案激动人心四格漫最终篇"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48612.jpg"
+                alt="超级蔚蓝档案激动人心四格漫最终篇" /><span class="bg"></span
+              ><span class="tt">更新至短篇[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48612/" title="超级蔚蓝档案激动人心四格漫最终篇"
+                >超级蔚蓝档案激动人心四格漫最终篇</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-04<em>8.5</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48611/" title="笨蛋魅魔巴麻美"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48611.jpg"
+                alt="笨蛋魅魔巴麻美" /><span class="bg"></span
+              ><span class="tt">更新至第01话</span><span class="sl"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48611/" title="笨蛋魅魔巴麻美">笨蛋魅魔巴麻美</a>
+            </p>
+            <span class="updateon">更新于：2023-06-04<em>6.3</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48610/" title="メンヘラチャン"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48610.jpg"
+                alt="メンヘラチャン" /><span class="bg"></span
+              ><span class="tt">更新至番外1</span><span class="sl"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48610/" title="メンヘラチャン">メンヘラチャン</a>
+            </p>
+            <span class="updateon">更新于：2023-06-04<em>7.0</em></span>
+          </li>
+          <li>
+            <a
+              class="bcover"
+              href="/comic/48609/"
+              title="智能仿生机器人不知异常"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48609.jpg"
+                alt="智能仿生机器人不知异常" /><span class="bg"></span
+              ><span class="tt">更新至短篇[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48609/" title="智能仿生机器人不知异常"
+                >智能仿生机器人不知异常</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-04<em>9.9</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48608/" title="猫和鸟的四季插画"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48608.jpg"
+                alt="猫和鸟的四季插画" /><span class="bg"></span
+              ><span class="tt">更新至短篇[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48608/" title="猫和鸟的四季插画"
+                >猫和鸟的四季插画</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-04<em>7.0</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48607/" title="户崎同学只对我冷淡"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48607.jpg"
+                alt="户崎同学只对我冷淡" /><span class="bg"></span
+              ><span class="tt">更新至第01话</span><span class="sl"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48607/" title="户崎同学只对我冷淡"
+                >户崎同学只对我冷淡</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-04<em>9.8</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48606/" title="狂爱公寓"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48606.jpg"
+                alt="狂爱公寓" /><span class="bg"></span
+              ><span class="tt">更新至第01卷[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48606/" title="狂爱公寓">狂爱公寓</a>
+            </p>
+            <span class="updateon">更新于：2023-06-04<em>5.2</em></span>
+          </li>
+          <li>
+            <a
+              class="bcover"
+              href="/comic/48605/"
+              title="我被潜伏在地下城的有病女人杀死无数次"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48605.jpg"
+                alt="我被潜伏在地下城的有病女人杀死无数次" /><span
+                class="bg"
+              ></span
+              ><span class="tt">更新至第02话试阅版</span><span class="sl"></span
+            ></a>
+            <p class="ell">
+              <a
+                href="/comic/48605/"
+                title="我被潜伏在地下城的有病女人杀死无数次"
+                >我被潜伏在地下城的有病女人杀死无数次</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-04<em>8.1</em></span>
+          </li>
+          <li>
+            <a class="bcover" href="/comic/48604/" title="special day"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48604.jpg"
+                alt="special day" /><span class="bg"></span
+              ><span class="tt">更新至短篇[完]</span><span class="fd"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48604/" title="special day">special day</a>
+            </p>
+            <span class="updateon">更新于：2023-06-04<em>9.1</em></span>
+          </li>
+          <li>
+            <a
+              class="bcover"
+              href="/comic/48603/"
+              title="被抛弃后，享受朴素的单身生活"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48603.jpg"
+                alt="被抛弃后，享受朴素的单身生活" /><span class="bg"></span
+              ><span class="tt">更新至第01话</span><span class="sl"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48603/" title="被抛弃后，享受朴素的单身生活"
+                >被抛弃后，享受朴素的单身生活</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-04<em>9.1</em></span>
+          </li>
+          <li>
+            <a
+              class="bcover"
+              href="/comic/48602/"
+              title="非主流偶像地狱变外传 塞拉公主"
+              ><img
+                data-src="//cf.hamreus.com/cpic/b/48602.jpg"
+                alt="非主流偶像地狱变外传 塞拉公主" /><span class="bg"></span
+              ><span class="tt">更新至特别篇</span><span class="sl"></span
+            ></a>
+            <p class="ell">
+              <a href="/comic/48602/" title="非主流偶像地狱变外传 塞拉公主"
+                >非主流偶像地狱变外传 塞拉公主</a
+              >
+            </p>
+            <span class="updateon">更新于：2023-06-04<em>7.9</em></span>
+          </li>
+        </ul>
+        <div class="pager-cont">
+          <!-- AspNetPager 7.5.1 Copyright:2003-2015 Webdiyer (www.webdiyer.com) -->
+          <div id="AspNetPager1" class="pager">
+            <span class="current" style="margin-right: 5px">1</span>
+            <a href="/list/index_p2.html" style="margin-right: 5px">2</a>
+            <a href="/list/index_p3.html" style="margin-right: 5px">3</a>
+            <a href="/list/index_p4.html" style="margin-right: 5px">4</a>
+            <a href="/list/index_p5.html" style="margin-right: 5px">5</a>
+            <a href="/list/index_p6.html" style="margin-right: 5px">6</a>
+            <a href="/list/index_p7.html" style="margin-right: 5px">7</a>
+            <a href="/list/index_p8.html" style="margin-right: 5px">8</a>
+            <a href="/list/index_p9.html" style="margin-right: 5px">...</a>
+            <a class="prev" href="/list/index_p2.html" style="margin-right: 5px"
+              >下一页</a
+            >
+            <a
+              class="prev"
+              href="/list/index_p1157.html"
+              style="margin-right: 5px"
+              >尾页</a
+            >
+          </div>
+          <!-- AspNetPager 7.5.1 Copyright:2003-2015 Webdiyer (www.webdiyer.com) -->
+        </div>
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="//cf.hamreus.com/scripts/main_24DCB3C3F539F8714290D00049945958701D7E2E.js"
+    ></script>
+    <script type="text/javascript">
+      $(function () {
+        SMH.suggest.init();
+        SMH.history.bind("#history");
+        $.Lazyload($("#contList"));
+      });
+    </script>
+    <div class="footer mt16 cf">
+      <div class="footer-wrap">
+        <div class="footer-cont">
+          <p>
+            看漫画所有漫画均来自网友分享和上传，以便漫画爱好者研究漫画技巧和构图方式，禁止任何形式的下载！若喜欢，请支持购买正版！看漫画的漫画版权归原漫画作者及发行商所有。如有侵犯到您的权益，请联系我们，确认之后立即删除。本站不负任何相关责任！看漫画欢迎和各大公司进行内容及模式上合作。另，本站暂不接受任何广告，谢谢
+            。
+          </p>
+          <script
+            type="text/javascript"
+            src="//cf.hamreus.com/scripts/footer_85567689D82807C3764BA4B9FCF0B9485834D8CB.js"
+          ></script>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      SMH.utils.userCheckLogin();
+    </script>
+    <!-- Last modified:2023-06-07 14:42:44 -->
+    <div id="jg_960_c" class="w998 mt10">
+      <center>
+        <div class="sitemaji_banner" model="728x90"></div>
+        <script
+          type="text/javascript"
+          src="//ad.sitemaji.com/ysm_ikanman.js"
+        ></script>
+      </center>
+    </div>
+    <script type="text/javascript">
+      $(function () {
+        $("#jg_960_c").appendTo("#jg_960");
+      });
+    </script>
+  </body>
+</html>

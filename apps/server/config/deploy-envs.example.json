@@ -1,0 +1,11 @@
+{
+  "environments": [
+    {
+      "port": "18890",
+      "description": "8890 本地环境",
+      "staticRoot": "D:/App/nginx-1.28.0/webDev/YIDA/8890/html",
+      "backendUrl": "http://127.0.0.1:9999",
+      "stripApiPrefix": true
+    }
+  ]
+}

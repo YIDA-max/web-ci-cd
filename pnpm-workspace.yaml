@@ -1,5 +1,13 @@
 packages:
-  - "apps/*"
+  - "apps/web"
+  - "apps/server"
   - "packages/*"
 allowBuilds:
   sharp: false
+  esbuild: true
+  core-js: true
+  core-js-pure: true
+  es5-ext: true
+  ejs: false
+  puppeteer: false
+  zipfile: false

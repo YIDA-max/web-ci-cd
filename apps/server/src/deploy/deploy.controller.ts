@@ -1,8 +1,10 @@
-import { Controller, Get, Post, Body, Logger } from '@nestjs/common';
+import { Controller, Get, Post, Body, Logger, UseGuards } from '@nestjs/common';
 import { DeployService } from './deploy.service';
 import { DeployBuildDto } from './dto/deploy-build.dto';
+import { AuthGuard } from '../auth/auth.guard';
 
 @Controller('api/deploy')
+@UseGuards(AuthGuard)
 export class DeployController {
   private readonly logger = new Logger(DeployController.name);
 
@@ -11,7 +13,7 @@ export class DeployController {
   /**
    * 获取部署环境列表
    * GET /api/deploy/environments
-   * 解析 Nginx 配置返回可用环境
+   * 读取 DEPLOY_ENV_FILE 指向的 JSON 配置
    */
   @Get('environments')
   async getEnvironments() {

@@ -19,7 +19,11 @@
     "noFallthroughCasesInSwitch": false,
     "esModuleInterop": true,
     "paths": {
-      "@gitcicd/shared": ["../../packages/shared/src"]
+      "@gitcicd/shared": ["../../packages/shared/src"],
+      "@/*": ["src/content-shared/*"],
+      "DB/*": ["src/shims/db-*"],
+      "koa-router": ["src/shims/koa-router"],
+      "readline-sync": ["src/shims/readline-sync"]
     }
   }
 }

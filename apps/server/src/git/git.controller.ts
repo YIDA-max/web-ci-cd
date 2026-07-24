@@ -1,9 +1,11 @@
-import { Controller, Post, Body, Logger } from '@nestjs/common';
+import { Controller, Post, Body, Logger, UseGuards } from '@nestjs/common';
 import { GitService } from './git.service';
 import { SyncBranchesDto } from './dto/sync-branches.dto';
 import { MergeBranchesDto } from './dto/merge-branches.dto';
+import { AuthGuard } from '../auth/auth.guard';
 
 @Controller('api/git')
+@UseGuards(AuthGuard)
 export class GitController {
   private readonly logger = new Logger(GitController.name);
 

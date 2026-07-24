@@ -1,0 +1,33 @@
+.BookContent {
+  display: flex;
+  width: 100%;
+  height: 60vh;
+  .TableOfContents {
+    position: relative;
+    width: 15%;
+    height: 100%;
+    padding: 10px;
+    overflow: auto;
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    .TableOfContentsItem {
+      width: 100%;
+      margin-bottom: 10px;
+      overflow: auto;
+      cursor: pointer;
+      scrollbar-width: thin;
+      scrollbar-color: red transparent;
+    }
+  }
+  .Content {
+    width: 82%;
+    height: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    overflow: auto;
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+  }
+}

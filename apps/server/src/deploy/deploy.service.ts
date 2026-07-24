@@ -2,7 +2,6 @@ import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import * as fs from 'fs';
 import * as path from 'path';
-import * as os from 'os';
 import { exec } from 'child_process';
 import { promisify } from 'util';
 import simpleGit from 'simple-git';
@@ -27,17 +26,15 @@ export interface LogEntry {
 @Injectable()
 export class DeployService {
   private readonly logger = new Logger(DeployService.name);
-  private readonly confPath: string;
+  /** 环境列表 JSON 文件的绝对路径（与 Nginx conf 解耦） */
+  private readonly envFilePath: string;
   private readonly workspaceBase: string;
   private readonly buildOutputDir: string;
   private readonly installCmd: string;
   private readonly buildCmd: string;
 
   constructor(private configService: ConfigService) {
-    this.confPath = this.configService.get<string>(
-      'DEPLOY_CONF_PATH',
-      '/etc/nginx/conf.d/webDev.conf',
-    );
+    this.envFilePath = this.resolveEnvFilePath();
     this.buildOutputDir = this.configService.get<string>(
       'DEPLOY_BUILD_OUTPUT_DIR',
       'html',
@@ -58,94 +55,100 @@ export class DeployService {
     if (path.isAbsolute(configuredWorkspace)) {
       this.workspaceBase = configuredWorkspace;
     } else {
-      // 相对路径基于 monorepo 根目录解析
-      this.workspaceBase = path.resolve(__dirname, '../../../..', configuredWorkspace);
+      this.workspaceBase = path.resolve(
+        process.cwd(),
+        configuredWorkspace,
+      );
     }
+
+    this.logger.log(`发版环境配置文件: ${this.envFilePath}`);
   }
 
   /**
-   * 解析 Nginx 配置，返回环境列表
+   * 解析环境配置路径：
+   * 1) DEPLOY_ENV_FILE（绝对路径，或相对进程 cwd）
+   * 2) 打包内置：cwd/config/deploy-envs.json、dist/config/deploy-envs.json
+   */
+  private resolveEnvFilePath(): string {
+    const configured =
+      this.configService.get<string>('DEPLOY_ENV_FILE')?.trim() ||
+      this.configService.get<string>('DEPLOY_CONF_PATH')?.trim();
+
+    if (configured) {
+      return path.isAbsolute(configured)
+        ? configured
+        : path.resolve(process.cwd(), configured);
+    }
+
+    const candidates = [
+      path.resolve(process.cwd(), 'config/deploy-envs.json'),
+      path.resolve(__dirname, '../config/deploy-envs.json'),
+      path.resolve(__dirname, '../../config/deploy-envs.json'),
+    ];
+    for (const p of candidates) {
+      if (fs.existsSync(p)) return p;
+    }
+    // 默认指向包内约定路径（打包后也会有）
+    return candidates[0];
+  }
+
+  /**
+   * 读取独立环境配置文件（JSON），不再解析 Nginx conf
    */
   async getEnvironments(): Promise<DeployEnvironment[]> {
-    const content = fs.readFileSync(this.confPath, 'utf-8');
+    if (!fs.existsSync(this.envFilePath)) {
+      throw new Error(
+        `环境配置文件不存在: ${this.envFilePath}\n请将 deploy-envs.json 放进包内 config/，或设置 DEPLOY_ENV_FILE`,
+      );
+    }
 
-    // 解析 map $server_port $backend_url { ... }
-    const backendMap = this.parseNginxMap(content, 'backend_url');
-    // 解析 map $server_port $static_root { ... }
-    const staticMap = this.parseNginxMap(content, 'static_root');
-    // 解析 map $server_port $strip_api_prefix { ... }
-    const stripMap = this.parseNginxMap(content, 'strip_api_prefix');
+    const raw = fs.readFileSync(this.envFilePath, 'utf-8');
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(raw);
+    } catch (e) {
+      throw new Error(
+        `环境配置 JSON 解析失败: ${this.envFilePath}\n${(e as Error).message}`,
+      );
+    }
 
-    const environments: DeployEnvironment[] = [];
+    const list = Array.isArray(parsed)
+      ? parsed
+      : (parsed as { environments?: unknown })?.environments;
 
-    // 合并三个 map，以端口为 key
-    const allPorts = new Set([
-      ...Object.keys(backendMap),
-      ...Object.keys(staticMap),
-    ]);
+    if (!Array.isArray(list) || list.length === 0) {
+      throw new Error(
+        `环境配置为空: ${this.envFilePath}\n请在 environments 数组中添加入口`,
+      );
+    }
 
-    for (const port of allPorts) {
-      if (port === 'default') continue;
-
-      const backendEntry = backendMap[port] || { value: '', comment: '' };
-      const staticEntry = staticMap[port] || { value: '', comment: '' };
-      const stripValue = stripMap[port]?.value;
-
-      environments.push({
+    const environments: DeployEnvironment[] = list.map((item: any, index) => {
+      const port = String(item.port ?? '').trim();
+      const staticRoot = String(item.staticRoot ?? item.static_root ?? '').trim();
+      if (!port || !staticRoot) {
+        throw new Error(
+          `环境配置第 ${index + 1} 项缺少 port 或 staticRoot`,
+        );
+      }
+      if (!path.isAbsolute(staticRoot)) {
+        throw new Error(
+          `环境 ${port} 的 staticRoot 必须是绝对路径，当前: ${staticRoot}`,
+        );
+      }
+      return {
         port,
-        description: backendEntry.comment || staticEntry.comment || `端口 ${port}`,
-        backendUrl: backendEntry.value || '',
-        staticRoot: staticEntry.value || '',
-        stripApiPrefix: stripValue === '1',
-      });
-    }
+        description: String(item.description || `端口 ${port}`),
+        backendUrl: String(item.backendUrl || item.backend_url || ''),
+        staticRoot: path.normalize(staticRoot),
+        stripApiPrefix: Boolean(
+          item.stripApiPrefix ?? item.strip_api_prefix ?? true,
+        ),
+      };
+    });
 
-    // 按端口号排序
-    environments.sort((a, b) => parseInt(a.port) - parseInt(b.port));
-
-    this.logger.log(`解析到 ${environments.length} 个部署环境`);
+    environments.sort((a, b) => parseInt(a.port, 10) - parseInt(b.port, 10));
+    this.logger.log(`读取到 ${environments.length} 个部署环境`);
     return environments;
-  }
-
-  /**
-   * 解析 Nginx map 块
-   * 返回 { port: { value, comment } }
-   */
-  private parseNginxMap(
-    content: string,
-    varName: string,
-  ): Record<string, { value: string; comment: string }> {
-    const result: Record<string, { value: string; comment: string }> = {};
-
-    // 匹配 map $server_port $varName { ... }
-    const mapRegex = new RegExp(
-      `map\\s+\\$server_port\\s+\\$${varName}\\s*\\{([\\s\\S]*?)\\}`,
-    );
-    const match = content.match(mapRegex);
-    if (!match) return result;
-
-    const blockContent = match[1];
-
-    // 匹配每行：~^18888$    "http://...";              # 88线上服务
-    // 或：      ~^18888$    "D:/App/.../html";
-    const lineRegex = /~\^(\d+)\$\s+"([^"]+)"\s*;\s*(?:#\s*(.*))?/g;
-    let lineMatch;
-
-    while ((lineMatch = lineRegex.exec(blockContent)) !== null) {
-      const port = lineMatch[1];
-      const value = lineMatch[2];
-      const comment = (lineMatch[3] || '').trim();
-      result[port] = { value, comment };
-    }
-
-    // 也解析 default 行
-    const defaultRegex = /default\s+"([^"]+)"\s*;/;
-    const defaultMatch = blockContent.match(defaultRegex);
-    if (defaultMatch) {
-      result['default'] = { value: defaultMatch[1], comment: '' };
-    }
-
-    return result;
   }
 
   /**

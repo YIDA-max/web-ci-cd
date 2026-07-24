@@ -17,7 +17,6 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
 
-  // 全局管道：自动校验 + 类型转换
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
@@ -25,24 +24,23 @@ async function bootstrap() {
     }),
   );
 
-  // 允许 Next.js 前端跨域访问
-  app.enableCors({
-    origin: [
-      "http://localhost:10000",
-      "http://127.0.0.1:10000",
-      "http://192.168.200.218:10000",
-      "http://192.168.200.88:10000",
-    ],
-    credentials: true,
-  });
+  const corsOrigins = configService.get<string>("CORS_ORIGINS")?.trim();
+  if (!corsOrigins || corsOrigins === "*") {
+    app.enableCors({ origin: true, credentials: true });
+  } else {
+    app.enableCors({
+      origin: corsOrigins.split(",").map((o) => o.trim()).filter(Boolean),
+      credentials: true,
+    });
+  }
 
   const port = configService.get<number>("PORT", 10001);
-  const host = configService.get<string>("HOST", "127.0.0.1");
+  const host = configService.get<string>("HOST", "0.0.0.0");
 
   await app.listen(port, host);
 
   const logger = new Logger("Bootstrap");
-  logger.log(`Git Service API → http://${host}:${port}/api/git/*`);
+  logger.log(`API → http://${host}:${port}/api/*`);
 }
 
 bootstrap();

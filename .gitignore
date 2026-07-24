@@ -16,7 +16,9 @@ dist/
 # 本项目自身会通过 simple-git 在 .workspace/ 下 clone 仓库并执行分支合并，
 # 这些是嵌套 Git 仓库，绝不能被父项目 Git 跟踪。
 .workspace/
-
+.deploy-workspace/
+apps/web-legacy/
+apps/SoNovel/
 # 发版构建工作目录（clone + npm install + build 的临时目录）
 .deploy-workspace/
 
